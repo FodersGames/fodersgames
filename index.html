@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FodersGames - Accueil</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f8f9fa;
+            color: #333;
+            overflow-x: hidden;
+        }
+        header {
+            background: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1.5s ease-out;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            max-width: 1200px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #007bff;
+        }
+        .hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            text-align: center;
+            background: url('hero-bg-light.jpg') no-repeat center center/cover;
+            position: relative;
+            border-radius: 10px;
+            animation: slideIn 1.5s ease-out;
+        }
+        .hero h2, .hero p {
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+        .hero h2 {
+            animation-delay: 0.5s;
+        }
+        .hero p {
+            animation-delay: 1s;
+        }
+        .games-showcase {
+            padding: 50px 0;
+            text-align: center;
+        }
+        .game-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 400px;
+            margin: auto;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transform: translateY(30px);
+            opacity: 0;
+            animation: slideUp 1.5s forwards;
+        }
+        .coming-soon-box {
+            display: inline-block;
+            padding: 5px 10px;
+            border: 2px solid #007bff;
+            color: #007bff;
+            font-weight: bold;
+            font-size: 12px;
+            border-radius: 5px;
+            animation: bounceIn 1s ease-out;
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        .btn:hover {
+            background: #0056b3;
+            transform: scale(1.1);
+        }
+        .btn-orange {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #ff7300;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.3s ease;
+            margin-top: 15px;
+        }
+        .btn-orange:hover {
+            background: #d95d00;
+            transform: scale(1.1);
+        }
+        footer {
+            background: #fff;
+            text-align: center;
+            padding: 20px 0;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0);
+            }
+            60% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>FodersGames</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li><a href="jeux.html"><i class="fas fa-gamepad"></i> Jeux</a></li>
+                    <li><a href="apropos.html"><i class="fas fa-info-circle"></i> À propos</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>Bienvenue chez FodersGames</h2>
+                <p>Des expériences de jeu immersives et innovantes.</p>
+                <a href="jeux.html" class="btn">Découvrir nos jeux</a>
+            </div>
+        </section>
+        <section class="games-showcase">
+            <div class="container">
+                <h2>Notre Prochain Jeu</h2>
+                <div class="game-card">
+                    <span class="coming-soon-box">COMING SOON</span>
+                    <h3>Un Nouveau Monde Vous Attend...</h3>
+                    <p>Restez à l'affût, une aventure épique arrive bientôt.</p>
+                    <a href="#" class="btn-orange">En savoir plus</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 FodersGames. Tous droits réservés.</p>
+        </div>
+    </footer>
+</body>
+</html>

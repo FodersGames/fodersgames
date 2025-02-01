@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FodersGames - À propos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f8f9fa;
+            color: #333;
+            overflow-x: hidden;
+            animation: fadeIn 1s ease-out;
+        }
+        header {
+            background: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1.5s ease-out;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            max-width: 1200px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #007bff;
+        }
+        main {
+            padding: 50px 0;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+        .about-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 50px;
+            text-align: justify;
+            animation: slideUp 1s ease-out;
+        }
+        .about-content div {
+            width: 45%;
+        }
+        .about-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        footer {
+            background: #fff;
+            text-align: center;
+            padding: 20px 0;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsivité */
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+            }
+            .about-content div {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>FodersGames</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="jeux.html">Jeux</a></li>
+                    <li><a href="apropos.html">À propos</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section>
+            <h2 class="section-title">Qui Sommes-Nous ?</h2>
+            <div class="container about-content">
+                <div>
+                    <h3>Notre Mission</h3>
+                    <p>Chez FodersGames, nous nous efforçons de créer des expériences de jeu uniques et immersives qui captivent l'imagination des joueurs. Notre équipe travaille sans relâche pour offrir des jeux qui non seulement divertissent, mais qui laissent également une empreinte durable.</p>
+                </div>
+                <div>
+                    <h3>Notre Histoire</h3>
+                    <p>FodersGames a été fondé avec une simple idée en tête : créer des jeux originaux et mémorables. Depuis nos débuts, nous avons cherché à repousser les limites de la créativité et de l'innovation, en expérimentant de nouveaux genres et en mettant l'accent sur une expérience de jeu fluide et excitante.</p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h3 class="section-title">À propos de Squelettique</h3>
+            <div class="container about-content">
+                <p>FodersGames a été créé par Squelettique, un passionné de jeux vidéo et de développement. Avec une vision de rendre le monde du jeu plus créatif et diversifié, Squelettique se concentre sur la création de jeux qui touchent les joueurs à un niveau plus profond et qui offrent des expériences inoubliables.</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 FodersGames. Tous droits réservés.</p>
+        </div>
+    </footer>
+</body>
+</html>
