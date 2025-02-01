@@ -6,6 +6,7 @@
     <title>FodersGames - Games</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -14,7 +15,6 @@
             background: #f8f9fa;
             color: #333;
             overflow-x: hidden;
-            animation: fadeIn 1s ease-out;
         }
         header {
             background: #fff;
@@ -24,7 +24,7 @@
             animation: fadeIn 1.5s ease-out;
         }
         .container {
-            width: 90%; /* Reduces width for smaller screens */
+            width: 80%;
             margin: auto;
             max-width: 1200px;
         }
@@ -44,47 +44,53 @@
         nav ul li a:hover {
             color: #007bff;
         }
-        main {
+        .coming-soon-section {
             padding: 50px 0;
-        }
-        .coming-soon {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: auto;
             text-align: center;
+        }
+        .coming-soon-card {
             background: #fff;
-            color: #333;
-            padding: 40px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            position: relative;
-            max-width: 600px;
+            padding: 30px;
+            border-radius: 10px;
+            width: 400px;
             margin: auto;
-            border-radius: 15px; /* Rounded corners */
-            animation: fadeIn 1.5s ease-out;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transform: translateY(30px);
+            opacity: 0;
+            animation: slideUp 1.5s forwards;
         }
-        .coming-soon h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            animation: bounce 1.5s infinite;
+        .coming-soon-box {
+            display: inline-block;
+            padding: 5px 10px;
+            border: 2px solid #007bff;
+            color: #007bff;
+            font-weight: bold;
+            font-size: 12px;
+            border-radius: 5px;
+            animation: bounceIn 1s ease-out;
         }
-        .coming-soon p {
-            font-size: 1.2rem;
+        .coming-soon-card h2 {
+            font-size: 1.8rem;
+            margin-top: 20px;
+        }
+        .coming-soon-card p {
+            font-size: 1.1rem;
             margin-bottom: 30px;
-            animation: slideUp 2s ease-out;
         }
         .btn {
             display: inline-block;
             padding: 15px 30px;
-            background: #ff7300;
+            background: #007bff;
             color: #fff;
             text-decoration: none;
             border-radius: 50px;
             font-weight: bold;
-            transition: background 0.3s ease;
+            transition: background 0.3s ease, transform 0.3s ease;
         }
         .btn:hover {
-            background: #d95d00;
+            background: #0056b3;
+            transform: scale(1.1);
         }
         footer {
             background: #fff;
@@ -93,7 +99,6 @@
             box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        /* Animations */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -105,41 +110,65 @@
 
         @keyframes slideUp {
             from {
+                transform: translateY(30px);
                 opacity: 0;
-                transform: translateY(50px);
             }
             to {
-                opacity: 1;
                 transform: translateY(0);
+                opacity: 1;
             }
         }
 
-        @keyframes bounce {
+        @keyframes bounceIn {
             0% {
-                transform: translateY(0);
+                transform: scale(0);
             }
-            50% {
-                transform: translateY(-20px);
+            60% {
+                transform: scale(1.2);
             }
             100% {
-                transform: translateY(0);
+                transform: scale(1);
             }
         }
 
-        /* Responsive Design */
+        /* Mobile responsiveness */
         @media (max-width: 768px) {
-            .coming-soon h2 {
-                font-size: 2rem; /* Smaller font size for mobile */
+            .container {
+                width: 90%;
             }
-            .coming-soon p {
-                font-size: 1rem; /* Smaller text size for readability */
+            .coming-soon-card {
+                width: 90%;
+                padding: 20px;
             }
-            .btn {
-                padding: 12px 24px; /* Adjust button size */
+            .coming-soon-card h2 {
+                font-size: 1.4rem;
+            }
+            .coming-soon-card p {
                 font-size: 1rem;
             }
-            header {
-                padding: 15px 0; /* Reduce header padding for small screens */
+            .btn {
+                padding: 12px 24px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                width: 95%;
+            }
+            .coming-soon-card {
+                width: 100%;
+                padding: 15px;
+            }
+            .coming-soon-card h2 {
+                font-size: 1.2rem;
+            }
+            .coming-soon-card p {
+                font-size: 0.9rem;
+            }
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -150,20 +179,23 @@
             <h1>FodersGames</h1>
             <nav>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="jeux.html">Games</a></li>
-                    <li><a href="apropos.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="jeux.html"><i class="fas fa-gamepad"></i> Games</a></li>
+                    <li><a href="apropos.html"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
     <main>
-        <section class="coming-soon">
+        <section class="coming-soon-section">
             <div class="container">
-                <h2>Our Games Are Coming Soon!</h2>
-                <p>Stay tuned for epic adventures, new worlds to explore, and exciting challenges. We can't wait to bring you amazing experiences!</p>
-                <a href="#" class="btn">Stay Updated</a>
+                <div class="coming-soon-card">
+                    <span class="coming-soon-box">COMING SOON</span>
+                    <h2>Our Games Are Coming Soon!</h2>
+                    <p>Stay tuned for epic adventures, new worlds to explore, and exciting challenges. We can't wait to bring you amazing experiences!</p>
+                    <a href="#" class="btn">Stay Updated</a>
+                </div>
             </div>
         </section>
     </main>
