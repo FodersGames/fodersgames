@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FodersGames - Jeux</title>
+    <title>FodersGames - Games</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
@@ -24,7 +24,7 @@
             animation: fadeIn 1.5s ease-out;
         }
         .container {
-            width: 80%;
+            width: 90%; /* Reduces width for smaller screens */
             margin: auto;
             max-width: 1200px;
         }
@@ -51,17 +51,16 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 70vh;
+            height: auto;
             text-align: center;
             background: #fff;
             color: #333;
-            border: 2px solid #ddd; /* Changement du contour bleu en gris clair */
-            border-radius: 15px;
+            padding: 40px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             position: relative;
-            padding: 40px;
-            max-width: 600px; /* Ajustement de la taille du cadre */
+            max-width: 600px;
             margin: auto;
+            border-radius: 15px; /* Rounded corners */
             animation: fadeIn 1.5s ease-out;
         }
         .coming-soon h2 {
@@ -127,6 +126,22 @@
             }
         }
 
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .coming-soon h2 {
+                font-size: 2rem; /* Smaller font size for mobile */
+            }
+            .coming-soon p {
+                font-size: 1rem; /* Smaller text size for readability */
+            }
+            .btn {
+                padding: 12px 24px; /* Adjust button size */
+                font-size: 1rem;
+            }
+            header {
+                padding: 15px 0; /* Reduce header padding for small screens */
+            }
+        }
     </style>
 </head>
 <body>
@@ -135,9 +150,9 @@
             <h1>FodersGames</h1>
             <nav>
                 <ul>
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="jeux.html">Jeux</a></li>
-                    <li><a href="apropos.html">À propos</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="jeux.html">Games</a></li>
+                    <li><a href="apropos.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
@@ -146,15 +161,15 @@
     <main>
         <section class="coming-soon">
             <div class="container">
-                <h2>Nos Jeux Arrivent Bientôt !</h2>
-                <p>Restez connectés pour découvrir des aventures épiques, des mondes à explorer et des défis passionnants. Nous avons hâte de vous faire vivre de nouvelles expériences !</p>
-                <a href="#" class="btn">Restez Informé</a>
+                <h2>Our Games Are Coming Soon!</h2>
+                <p>Stay tuned for epic adventures, new worlds to explore, and exciting challenges. We can't wait to bring you amazing experiences!</p>
+                <a href="#" class="btn">Stay Updated</a>
             </div>
         </section>
     </main>
     <footer>
         <div class="container">
-            <p>&copy; 2025 FodersGames. Tous droits réservés.</p>
+            <p>&copy; 2025 FodersGames. All rights reserved.</p>
         </div>
     </footer>
 </body>

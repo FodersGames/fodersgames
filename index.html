@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FodersGames - Accueil</title>
+    <title>FodersGames - Home</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
@@ -169,6 +169,26 @@
                 transform: scale(1);
             }
         }
+
+        /* Adjustments for mobile */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+            .hero {
+                height: 60vh;
+            }
+            .game-card {
+                width: 90%;
+                margin-bottom: 30px;
+            }
+            .btn {
+                padding: 12px 24px;
+            }
+            .btn-orange {
+                padding: 12px 24px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -177,9 +197,9 @@
             <h1>FodersGames</h1>
             <nav>
                 <ul>
-                    <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
-                    <li><a href="jeux.html"><i class="fas fa-gamepad"></i> Jeux</a></li>
-                    <li><a href="apropos.html"><i class="fas fa-info-circle"></i> À propos</a></li>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="jeux.html"><i class="fas fa-gamepad"></i> Games</a></li>
+                    <li><a href="apropos.html"><i class="fas fa-info-circle"></i> About</a></li>
                     <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
                 </ul>
             </nav>
@@ -188,26 +208,26 @@
     <main>
         <section class="hero">
             <div class="container">
-                <h2>Bienvenue chez FodersGames</h2>
-                <p>Des expériences de jeu immersives et innovantes.</p>
-                <a href="jeux.html" class="btn">Découvrir nos jeux</a>
+                <h2>Welcome to FodersGames</h2>
+                <p>Immersive and innovative gaming experiences.</p>
+                <a href="jeux.html" class="btn">Discover Our Games</a>
             </div>
         </section>
         <section class="games-showcase">
             <div class="container">
-                <h2>Notre Prochain Jeu</h2>
+                <h2>Our Next Game</h2>
                 <div class="game-card">
                     <span class="coming-soon-box">COMING SOON</span>
-                    <h3>Un Nouveau Monde Vous Attend...</h3>
-                    <p>Restez à l'affût, une aventure épique arrive bientôt.</p>
-                    <a href="#" class="btn-orange">En savoir plus</a>
+                    <h3>A New World Awaits...</h3>
+                    <p>Stay tuned, an epic adventure is coming soon.</p>
+                    <a href="#" class="btn-orange">Learn More</a>
                 </div>
             </div>
         </section>
     </main>
     <footer>
         <div class="container">
-            <p>&copy; 2025 FodersGames. Tous droits réservés.</p>
+            <p>&copy; 2025 FodersGames. All rights reserved.</p>
         </div>
     </footer>
 </body>
