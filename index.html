@@ -12,7 +12,7 @@
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background: #f8f9fa;
+            background: #fff;
             color: #333;
             overflow-x: hidden;
         }
@@ -189,6 +189,75 @@
                 padding: 12px 24px;
             }
         }
+
+        /* Career Section Styling */
+        .career-section {
+            padding: 50px 0;
+            text-align: center;
+            background: #007bff;
+            color: white;
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+
+        .career-section .game-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            width: 400px;
+            margin: auto;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transform: translateY(30px);
+            opacity: 0;
+            animation: slideUp 1.5s forwards;
+        }
+
+        .career-section h3 {
+            font-size: 26px;
+            color: white;
+            font-weight: 700;
+            margin-bottom: 15px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .career-section p {
+            font-size: 18px;
+            color: white;
+            margin: 15px 0;
+            animation: fadeIn 2s ease-out;
+            animation-delay: 0.5s;
+        }
+
+        .career-section .btn-orange {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #fff;
+            color: #007bff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.3s ease;
+            margin-top: 15px;
+        }
+
+        .career-section .btn-orange:hover {
+            background: #0056b3;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        /* Contact Section Styling */
+        .contact-section {
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .contact-section p {
+            font-size: 16px;
+            color: #666;
+            margin: 15px 0;
+        }
     </style>
 </head>
 <body>
@@ -221,10 +290,23 @@
                     <p>Stay tuned, an epic adventure is coming soon.</p>
                     <a href="#" class="btn-orange">Learn More</a>
                 </div>
-                <div style="margin-top: 200px;">
-                    <p>For more details or inquiries, feel free to reach out to us:</p>
-                    <a href="mailto:fodersgames@gmail.com" class="btn">Contact Us</a>
-                </div>
+            </div>
+        </section>
+
+        <!-- Career Section -->
+        <section class="career-section">
+            <div class="container">
+                <h3>We're Hiring!</h3>
+                <p>Join the FodersGames team! Check out our current job openings and apply to become part of something epic.</p>
+                <a href="careers.html" class="btn-orange">View Careers</a>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <div class="container">
+                <p>For more details or inquiries, feel free to reach out to us:</p>
+                <a href="mailto:fodersgames@gmail.com" class="btn">Contact Us</a>
             </div>
         </section>
         

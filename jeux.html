@@ -12,7 +12,7 @@
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background: #f8f9fa;
+            background: #fff;
             color: #333;
             overflow-x: hidden;
         }
@@ -74,57 +74,106 @@
             padding: 20px;
             border-radius: 10px;
             width: 400px;
-            margin: auto;
+            margin: 30px auto; /* Ajout d'un espace de 30px entre les cartes */
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             text-align: center;
             transform: translateY(30px);
             opacity: 0;
             animation: slideUp 1.5s forwards;
+            position: relative;
+        }
+        .game-card h3 {
+            font-size: 1.4em;
+            color: #333;
+            margin: 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .game-card p {
+            font-size: 0.9em;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        .game-card .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            background: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .game-card .btn:active {
+            transform: scale(0.95);
         }
         .coming-soon-box {
             display: inline-block;
-            padding: 5px 10px;
-            border: 2px solid #007bff;
-            color: #007bff;
+            padding: 5px 15px;
             font-weight: bold;
-            font-size: 12px;
-            border-radius: 5px;
-            animation: bounceIn 1s ease-out;
+            font-size: 16px;
+            background: linear-gradient(45deg, #0066cc, #00aaff); /* Dégradé de bleu */
+            color: white;
+            border-radius: 8px;
+            border: none; /* Retrait de la bordure */
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: pulseEffect 2s infinite; /* Retrait de l'animation glow */
+            margin-bottom: 10px; /* Augmenter l'espace entre le cadre et le texte */
         }
-        .btn {
-            display: inline-block;
-            padding: 15px 30px;
-            background: #007bff;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: background 0.3s ease, transform 0.3s ease;
+        /* Animation de pulsation du cadre COMING SOON */
+        @keyframes pulseEffect {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
         }
-        .btn:hover {
-            background: #0056b3;
-            transform: scale(1.1);
+
+        /* Animation des points d'interrogation autour du cadre */
+        .game-card::before {
+            content: "❓"; /* Emoji du point d'interrogation */
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            font-size: 2em;
+            animation: questionMarks 3s infinite;
         }
-        .btn-orange {
-            display: inline-block;
-            padding: 15px 30px;
-            background: #007bff;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: background 0.3s ease, transform 0.3s ease;
-            margin-top: 15px;
+
+        .game-card::after {
+            content: "❓"; /* Emoji du point d'interrogation */
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            font-size: 2em;
+            animation: questionMarks 3s infinite;
+            animation-delay: 1s;
         }
-        .btn-orange:hover {
-            background: #0056b3;
-            transform: scale(1.1);
+
+        .game-card.quiz-game::before {
+            content: "🧠"; /* Emoji du cerveau pour Quiz */
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            font-size: 2em;
+            animation: questionMarks 3s infinite;
         }
-        footer {
-            background: #fff;
-            text-align: center;
-            padding: 20px 0;
-            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+
+        .game-card.quiz-game::after {
+            content: "🧠"; /* Emoji du cerveau pour Quiz */
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            font-size: 2em;
+            animation: questionMarks 3s infinite;
+            animation-delay: 1s;
         }
 
         @keyframes fadeIn {
@@ -158,19 +207,34 @@
             }
         }
 
-        @keyframes bounceIn {
+        @keyframes questionMarks {
             0% {
-                transform: scale(0);
+                transform: translateY(0);
+                opacity: 0.5;
             }
-            60% {
-                transform: scale(1.2);
+            50% {
+                transform: translateY(-10px);
+                opacity: 1;
             }
             100% {
-                transform: scale(1);
+                transform: translateY(0);
+                opacity: 0.5;
             }
         }
 
-        /* Adjustments for mobile */
+        @keyframes glowEffect {
+            0% {
+                box-shadow: 0 0 5px #ff007f, 0 0 10px #ff007f, 0 0 15px #ff007f, 0 0 20px #00d2ff, 0 0 25px #00d2ff;
+            }
+            50% {
+                box-shadow: 0 0 5px #ff007f, 0 0 10px #ff007f, 0 0 15px #ff007f, 0 0 20px #00d2ff, 0 0 25px #00d2ff;
+            }
+            100% {
+                box-shadow: 0 0 5px #ff007f, 0 0 10px #ff007f, 0 0 15px #ff007f, 0 0 20px #00d2ff, 0 0 25px #00d2ff;
+            }
+        }
+
+        /* Ajustements pour mobile */
         @media (max-width: 768px) {
             .container {
                 width: 90%;
@@ -185,9 +249,18 @@
             .btn {
                 padding: 12px 24px;
             }
-            .btn-orange {
-                padding: 12px 24px;
-            }
+        }
+
+        footer {
+            background: #fff;
+            text-align: center;
+            padding: 20px 0;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        footer p {
+            font-size: 0.9em;
+            color: #333;
         }
     </style>
 </head>
@@ -206,15 +279,21 @@
         </div>
     </header>
     <main>
-       
         <section class="games-showcase">
             <div class="container">
-                
                 <div class="game-card">
                     <span class="coming-soon-box">COMING SOON</span>
                     <h3>A New World Awaits...</h3>
-                    <p>Stay tuned, an epic adventure is coming soon.</p>
-                    <a href="#" class="btn-orange">Learn More</a>
+                    <p>Stay tuned, an epic adventure is coming soon. Get ready for a journey like no other!</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+            </div>
+            <div class="container">
+                <div class="game-card quiz-game">
+                    <span class="coming-soon-box">Quiz Game</span>
+                    <h3>Want to test your Talent?</h3>
+                    <p>Try now with this online game.</p>
+                    <a href="quiz.html" class="btn">Learn More</a>
                 </div>
             </div>
         </section>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FodersGames - Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #fff;
+            color: #333;
+            overflow-x: hidden;
+        }
+        header {
+            background: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1.5s ease-out;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            max-width: 1200px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #007bff;
+        }
+        .quiz-section {
+            padding: 50px 0;
+            text-align: center;
+        }
+        .quiz-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 400px;
+            margin: auto;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transform: translateY(30px);
+            opacity: 0;
+            animation: slideUp 1.5s forwards;
+        }
+        .score-box {
+            background: #fff;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #007bff; /* New color */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.3s ease;
+            margin: 10px;
+            width: 200px;
+            border: none; /* Removed the black border */
+        }
+        .btn:hover {
+            background: #0361c7; /* Blue on hover */
+            transform: scale(1.05);
+        }
+        .btn:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+        }
+        footer {
+            background: #fff;
+            text-align: center;
+            padding: 20px 0;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+        /* Adjustments for mobile */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+            .quiz-card {
+                width: 90%;
+                margin-bottom: 30px;
+            }
+            .btn {
+                padding: 12px 24px;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>FodersGames</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="jeux.html"><i class="fas fa-gamepad"></i> Games</a></li>
+                    <li><a href="apropos.html"><i class="fas fa-question-circle"></i> About</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="quiz-section">
+            <div class="container">
+                <div class="score-box">
+                    <p><strong>Score: </strong><span id="score">0</span></p>
+                </div>
+                <div class="quiz-card">
+                    <h3>Video Game Quiz</h3>
+                    <p>Answer the following questions and score points!</p>
+                    <div id="question-container">
+                        <!-- The question will be dynamically inserted here -->
+                    </div>
+                    <div id="result"></div>
+                    <button class="btn" id="next-question-btn" onclick="nextQuestion()" disabled>Next Question</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 FodersGames. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        const questions = [
+            {
+                question: "Who is the protagonist in 'The Legend of Zelda'?",
+                options: ["Link", "Mario", "Samus"],
+                answer: "Link"
+            },
+            {
+                question: "In which game would you find the character 'Pikachu'?",
+                options: ["Pokemon", "Minecraft", "Final Fantasy"],
+                answer: "Pokemon"
+            },
+            {
+                question: "What is the main goal in 'Minecraft'?",
+                options: ["Survival", "Collecting items", "Building houses"],
+                answer: "Survival"
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        function loadQuestion() {
+            const question = questions[currentQuestionIndex];
+            const questionContainer = document.getElementById('question-container');
+            questionContainer.innerHTML = `
+                <h4>${question.question}</h4>
+                <div>
+                    <button class="btn" onclick="checkAnswer('${question.options[0]}')">${question.options[0]}</button>
+                    <button class="btn" onclick="checkAnswer('${question.options[1]}')">${question.options[1]}</button>
+                    <button class="btn" onclick="checkAnswer('${question.options[2]}')">${question.options[2]}</button>
+                </div>
+            `;
+            disableButtons(false); // Enable buttons for the new question
+            document.getElementById('next-question-btn').disabled = true; // Disable next button until answer is given
+        }
+
+        function checkAnswer(answer) {
+            const question = questions[currentQuestionIndex];
+            const result = document.getElementById('result');
+            if (answer === question.answer) {
+                result.innerHTML = "<p style='color: green;'>Correct! +1 Point</p>";
+                score++;
+                document.getElementById('score').textContent = score;
+            } else {
+                result.innerHTML = `<p style='color: red;'>Wrong! The correct answer is: ${question.answer}</p>`;
+            }
+            disableButtons(true); // Disable buttons after answering
+            document.getElementById('next-question-btn').disabled = false; // Enable next button
+        }
+
+        function disableButtons(disable) {
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach(button => {
+                button.disabled = disable;
+            });
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex = (currentQuestionIndex + 1) % questions.length;
+            loadQuestion();
+            document.getElementById('result').innerHTML = '';
+        }
+
+        // Initial load
+        loadQuestion();
+    </script>
+</body>
+</html>
