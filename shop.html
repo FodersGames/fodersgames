@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FodersGames - Shop</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f0f4f8;
+            color: #333;
+            overflow-x: hidden;
+        }
+        header {
+            background: #fff;
+            padding: 30px 0;
+            text-align: center;
+            color: #333;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            max-width: 1200px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #007bff;
+        }
+
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            margin-bottom: 50px;
+        }
+
+        .product-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card img {
+            width: 100%;
+            max-height: 150px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .product-card h3 {
+            font-size: 1.5em;
+            color: #333;
+            margin-top: 15px;
+        }
+
+        .product-card p {
+            font-size: 1em;
+            color: #555;
+            margin: 10px 0;
+        }
+
+        .product-card .price {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+
+        .product-card .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .product-card .btn:hover {
+            background: #0056b3;
+            transform: scale(1.05);
+        }
+
+        /* Nouveau style pour l'offre promo */
+        .promo-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid #d4af37; /* Doré similaire au bleu des boutons */
+        }
+
+        .promo-card img {
+            width: 100%;
+            max-height: 150px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .promo-card .price {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #d4af37; /* Doré similaire au bleu des boutons */
+            margin-bottom: 15px;
+        }
+
+        /* Cadre pour le -20% */
+        .discount-badge {
+            position: absolute;
+            top: 5%;
+            right: 5%;
+            background-color: #d4af37; /* Doré similaire au bleu des boutons */
+            color: #fff;
+            padding: 5px 10px;
+            font-weight: bold;
+            border-radius: 50px;
+            font-size: 1.1em;
+        }
+
+        /* Bouton "Buy Now" en doré */
+        .promo-card .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #d4af37; /* Doré similaire au bleu des boutons */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .promo-card .btn:hover {
+            background: #f1c232; /* Teinte doré plus claire */
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: #fff;
+            text-align: center;
+            padding: 20px 0;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        footer p {
+            font-size: 0.9em;
+            color: #333;
+        }
+
+        /* Ajustements pour les petits écrans */
+        @media (max-width: 768px) {
+            .products {
+                margin-top: 20px;
+            }
+
+            .product-card {
+                width: 80%;
+                margin-bottom: 30px;
+            }
+        }
+
+        /* Ajout de l'espace entre le dernier article et le pied de page */
+        .products {
+            margin-bottom: 50px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>FodersGames</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="jeux.html"><i class="fas fa-gamepad"></i> Games</a></li>
+                    
+                    <li><a href="apropos.html"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="products">
+            <div class="product-card">
+                <img src="ShopItem_Coin_1.png" alt="Small Coin Pack">
+                <h3>Small Coin Pack</h3>
+                <p>Start your journey with a small coin boost!</p>
+                <span class="price">$4.99</span>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+
+            <div class="product-card">
+                <img src="ShopItem_Coin_2.png" alt="Medium Coin Pack">
+                <h3>Medium Coin Pack</h3>
+                <p>Get more coins and advance quicker in your adventure!</p>
+                <span class="price">$9.99</span>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+
+            <div class="product-card">
+                <img src="ShopItem_Coin_3.png" alt="Large Coin Pack">
+                <h3>Large Coin Pack</h3>
+                <p>Big boost for those who want to get ahead fast!</p>
+                <span class="price">$14.99</span>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+
+            <div class="product-card">
+                <img src="ShopItem_Coin_4.png" alt="Very Large Coin Pack">
+                <h3>Very Large Coin Pack</h3>
+                <p>Unlock a massive amount of coins for an unbeatable advantage!</p>
+                <span class="price">$19.99</span>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+
+            <div class="product-card">
+                <img src="ShopItem_Coin_5.png" alt="Extra Large Coin Pack">
+                <h3>Extra Large Coin Pack</h3>
+                <p>Get ready to dominate with the ultimate coin boost!</p>
+                <span class="price">$29.99</span>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+
+            <div class="product-card">
+                <img src="ShopItem_Coin_6.png" alt="Maxi Coin Pack">
+                <h3>Maxi Coin Pack</h3>
+                <p>The ultimate coin pack for the dedicated player!</p>
+                <span class="price">$49.99</span>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+
+            <!-- Nouvelle offre promo -->
+            <div class="promo-card">
+                <div class="discount-badge">-20%</div>
+                <img src="ShopItem_Coin_1.png" alt="Promo Coin Pack">
+                <h3>Exclusive Promo Coin Pack</h3>
+                <p>Get your coins with a 20% discount for a limited time!</p>
+                <span class="price">$3.99</span>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 FodersGames. All rights reserved.</p>
+    </footer>
+</body>
+</html>

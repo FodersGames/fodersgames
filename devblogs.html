@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FodersGames - DevBlog</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f8f9fa;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            max-width: 1200px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #007bff;
+        }
+
+        header h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-top: 20px;
+        }
+
+        header p {
+            font-size: 22px;
+            font-weight: 300;
+            margin-top: 10px;
+        }
+
+        /* DevBlog Section */
+        .devblog-posts {
+            width: 80%;
+            margin: auto;
+            padding: 50px 0;
+        }
+
+        .devblog-post {
+            background: #fff;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .devblog-post:hover {
+            transform: translateY(-10px);
+        }
+
+        .devblog-post h2 {
+            font-size: 36px;
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+
+        .devblog-post p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .devblog-post .date {
+            font-size: 14px;
+            color: #999;
+        }
+
+        .devblog-post .read-more-btn {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .devblog-post .read-more-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Pop-up style */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 800px;
+            max-height: 80%;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .popup .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ff0000;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        footer {
+            background: #fff;
+            text-align: center;
+            padding: 20px 0;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Adjustments for mobile */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+            header h1 {
+                font-size: 36px;
+            }
+            .devblog-post h2 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>FodersGames</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="jeux.html">Games</a></li>
+                    <li><a href="apropos.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="devblog-posts">
+            <div class="devblog-post">
+                <h2>New Game in Development</h2>
+                <p class="date">February 6, 2025</p>
+                <p>We are excited to announce that we are currently working on a new game! While we can't share too many details just yet, we’ll be providing more information soon.</p>
+                <button class="read-more-btn" onclick="openPopup()">Read More</button>
+            </div>
+        </section>
+    </main>
+
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <button class="close-btn" onclick="closePopup()">X</button>
+            <h2>New Game in Development</h2>
+            <p class="date">February 6, 2025</p>
+            <h3>Patch Notes:</h3>
+            <ul>
+                <li><strong>New Game:</strong> We are currently working on a new game and will be sharing more details very soon. Stay tuned for updates!</li>
+                <li><strong>Coming Soon:</strong> More details will be provided in the upcoming weeks, including gameplay mechanics, story details, and much more.</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 FodersGames. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function openPopup() {
+            document.getElementById('popup').style.display = 'flex';
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

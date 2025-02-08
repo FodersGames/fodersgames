@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FodersGames - Roadmap</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f8f9fa;
+            color: #333;
+            overflow-x: hidden;
+        }
+        header {
+            background: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            max-width: 1200px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #007bff;
+        }
+        .roadmap-section {
+            padding: 50px 0;
+            text-align: center;
+        }
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: auto;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background: #007bff;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        .timeline-item {
+            position: relative;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            transform: translateX(-10%);
+        }
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            transform: translateX(10%);
+        }
+        .timeline-item h3 {
+            color: #007bff;
+            margin: 0;
+        }
+        .timeline-item p {
+            color: #666;
+        }
+        .timeline-circle {
+            width: 20px;
+            height: 20px;
+            background: #007bff;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .timeline-item:nth-child(odd) .timeline-circle {
+            right: -30px;
+        }
+        .timeline-item:nth-child(even) .timeline-circle {
+            left: -30px;
+        }
+        footer {
+            background: #fff;
+            text-align: center;
+            padding: 20px 0;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+            .timeline::after {
+                left: 20px;
+            }
+            .timeline-item {
+                width: 80%;
+                left: 0 !important;
+                transform: translateX(0) !important;
+                padding-left: 40px;
+            }
+            .timeline-circle {
+                left: 10px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>FodersGames</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="jeux.html"><i class="fas fa-gamepad"></i> Games</a></li>
+                    <li><a href="apropos.html"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <section class="roadmap-section">
+            <div class="container">
+                <h2>Our Development Roadmap</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-circle"></span>
+                        <h3>Q1 2025</h3>
+                        <p>Nothing at the moment.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-circle"></span>
+                        <h3>Q2 2025</h3>
+                        <p>Nothing at the moment.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-circle"></span>
+                        <h3>Q3 2025</h3>
+                        <p>Nothing at the moment.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-circle"></span>
+                        <h3>Q4 2025</h3>
+                        <p>Nothing at the moment.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 FodersGames. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
