@@ -343,10 +343,10 @@
     // Récupération des données depuis le localStorage (clés utilisées dans profil.html : "name" et "profilePic")
     window.onload = function() {
       const name = localStorage.getItem("name");
-      const profilePic = localStorage.getItem("profilePic");
+      const profilePic = localStorage.getItem("profile-pic");
 
       if (name) {
-        document.getElementById("profile-name").textContent = name;
+        document.getElementById("name").textContent = name;
       }
       if (profilePic) {
         document.getElementById("profile-pic").src = profilePic;
