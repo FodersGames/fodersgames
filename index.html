@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -93,61 +93,61 @@
 
   <main>
     <section class="login-container">
-      <h2 id="form-title">Connexion à FodersGames</h2>
+      <h2 id="form-title">Login to FodersGames</h2>
       <form id="auth-form">
         <input type="email" id="email" placeholder="Email">
-        <p class="error" id="email-error">Veuillez entrer une adresse email valide.</p>
+        <p class="error" id="email-error">Please enter a valid email address.</p>
 
-        <input type="password" id="password" placeholder="Mot de passe">
-        <p class="error" id="password-error">Mot de passe incorrect.</p>
+        <input type="password" id="password" placeholder="Password">
+        <p class="error" id="password-error">Incorrect password.</p>
 
         <input type="submit" value="Login">
       </form>
-      <a href="javascript:void(0);" class="btn-link" id="toggle-register">Pas encore de compte ? Inscrivez-vous</a>
+      <a href="javascript:void(0);" class="btn-link" id="toggle-register">Don't have an account? Sign up</a>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 FodersGames. Tous droits réservés.</p>
+    <p>&copy; 2025 FodersGames. All rights reserved.</p>
   </footer>
 
   <script>
-    // Bascule entre mode Login et Register
+    // Toggle between Login and Register modes
     document.getElementById('toggle-register').addEventListener('click', function() {
       var form = document.getElementById('auth-form');
       var submitButton = form.querySelector('input[type="submit"]');
       var formTitle = document.getElementById('form-title');
 
       if (submitButton.value === 'Login') {
-        // Passage au mode Inscription
+        // Switch to Register mode
         form.innerHTML = `
           <input type="email" id="email" placeholder="Email">
-          <p class="error" id="email-error">Veuillez entrer une adresse email valide.</p>
+          <p class="error" id="email-error">Please enter a valid email address.</p>
 
-          <input type="password" id="password" placeholder="Mot de passe">
-          <p class="error" id="password-error">Le mot de passe doit contenir au moins 6 caractères.</p>
+          <input type="password" id="password" placeholder="Password">
+          <p class="error" id="password-error">Password must be at least 6 characters long.</p>
 
-          <input type="password" id="confirm-password" placeholder="Confirmez le mot de passe">
-          <p class="error" id="confirm-password-error">Les mots de passe ne correspondent pas.</p>
+          <input type="password" id="confirm-password" placeholder="Confirm password">
+          <p class="error" id="confirm-password-error">Passwords do not match.</p>
 
           <input type="submit" value="Register">
         `;
-        formTitle.textContent = "Inscription à FodersGames";
-        document.getElementById('toggle-register').textContent = "Déjà un compte ? Connectez-vous";
+        formTitle.textContent = "Register for FodersGames";
+        document.getElementById('toggle-register').textContent = "Already have an account? Log in";
         form.onsubmit = registerHandler;
       } else {
-        // Retour au mode Connexion
+        // Switch back to Login mode
         form.innerHTML = `
           <input type="email" id="email" placeholder="Email">
-          <p class="error" id="email-error">Veuillez entrer une adresse email valide.</p>
+          <p class="error" id="email-error">Please enter a valid email address.</p>
 
-          <input type="password" id="password" placeholder="Mot de passe">
-          <p class="error" id="password-error">Mot de passe incorrect.</p>
+          <input type="password" id="password" placeholder="Password">
+          <p class="error" id="password-error">Incorrect password.</p>
 
           <input type="submit" value="Login">
         `;
-        formTitle.textContent = "Connexion à FodersGames";
-        document.getElementById('toggle-register').textContent = "Pas encore de compte ? Inscrivez-vous";
+        formTitle.textContent = "Login to FodersGames";
+        document.getElementById('toggle-register').textContent = "Don't have an account? Sign up";
         form.onsubmit = loginHandler;
       }
     });
@@ -170,7 +170,7 @@
       const password = document.getElementById('password').value.trim();
 
       if (!email.includes('@') || !email.includes('.')) {
-        showError('email-error', 'Veuillez entrer une adresse email valide.');
+        showError('email-error', 'Please enter a valid email address.');
         return;
       }
 
@@ -179,7 +179,7 @@
       if (user && user.password === password) {
         window.location.href = 'home.html';
       } else {
-        showError('password-error', 'Mot de passe incorrect.');
+        showError('password-error', 'Incorrect password.');
       }
     }
 
@@ -192,29 +192,29 @@
       const confirmPassword = document.getElementById('confirm-password').value.trim();
 
       if (!email.includes('@') || !email.includes('.')) {
-        showError('email-error', 'Veuillez entrer une adresse email valide.');
+        showError('email-error', 'Please enter a valid email address.');
         return;
       }
 
       if (password.length < 6) {
-        showError('password-error', 'Le mot de passe doit contenir au moins 6 caractères.');
+        showError('password-error', 'Password must be at least 6 characters long.');
         return;
       }
 
       if (password !== confirmPassword) {
-        showError('confirm-password-error', 'Les mots de passe ne correspondent pas.');
+        showError('confirm-password-error', 'Passwords do not match.');
         return;
       }
 
       if (localStorage.getItem(email)) {
-        showError('email-error', 'Cet email est déjà utilisé.');
+        showError('email-error', 'This email is already in use.');
         return;
       }
 
-      // Stocker les informations utilisateur sous la clé email
+      // Store user info under the key email
       localStorage.setItem(email, JSON.stringify({ email, password }));
 
-      // Lors de l'inscription, définir les valeurs par défaut pour "name" et "profilePic"
+      // Set default values for "name" and "profilePic" for use in profil.html and home.html
       const defaultName = email.split('@')[0];
       localStorage.setItem("name", defaultName);
       localStorage.setItem("profilePic", "https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_1280.png");
@@ -222,7 +222,7 @@
       window.location.href = 'home.html';
     }
 
-    // Par défaut, le formulaire est en mode Login
+    // By default, the form is in Login mode
     document.getElementById('auth-form').onsubmit = loginHandler;
   </script>
 </body>
