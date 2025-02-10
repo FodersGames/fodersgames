@@ -45,7 +45,7 @@
     nav ul li a:hover {
       color: #007bff;
     }
-    /* Zone profil encadrée */
+    /* Profile info in header */
     .profile-info {
       position: absolute;
       top: 20px;
@@ -74,7 +74,7 @@
       font-size: 16px;
       color: #333;
     }
-    /* Ajustements pour petits écrans */
+    /* Responsive adjustments for profile info */
     @media (max-width: 600px) {
       .profile-info {
         position: absolute;
@@ -223,6 +223,7 @@
       .game-card { width: 90%; margin-bottom: 30px; }
       .btn, .btn-orange { padding: 12px 24px; }
     }
+    /* Career Section (We're Hiring!) Styling */
     .career-section {
       padding: 50px 0;
       text-align: center;
@@ -273,6 +274,7 @@
       color: white;
       transform: scale(1.1);
     }
+    /* Contact Section Styling */
     .contact-section {
       padding: 50px 0;
       text-align: center;
@@ -297,7 +299,7 @@
         </ul>
       </nav>
     </div>
-    <!-- Zone profil cliquable redirigeant vers profil.html -->
+    <!-- Profile info in header -->
     <div class="profile-info">
       <a href="profil.html" class="profile-link">
         <img id="profile-pic" src="" alt="Profile Picture">
@@ -313,6 +315,7 @@
         <a href="jeux.html" class="btn">Discover Our Games</a>
       </div>
     </section>
+    <!-- First Game Card -->
     <section class="games-showcase">
       <div class="container">
         <div class="game-card">
@@ -323,14 +326,30 @@
         </div>
       </div>
     </section>
+    <!-- Quiz Card replacing the second game card -->
     <section class="games-showcase">
       <div class="container">
         <div class="game-card">
-          <span class="coming-soon-box">Coming Soon!</span>
-          <h3>Fantastic Journey</h3>
-          <p>Embark on a thrilling adventure. Stay tuned for the release of this epic action game.</p>
-          <a href="game2.html" class="btn-orange">Learn More</a>
+          <span class="coming-soon-box">Quiz</span>
+          <h3>Quiz Time!</h3>
+          <p>Test your knowledge about FodersGames. Challenge yourself with fun trivia questions!</p>
+          <a href="quiz.html" class="btn-orange">Take the Quiz</a>
         </div>
+      </div>
+    </section>
+    <!-- Career Section (We're Hiring!) -->
+    <section class="career-section">
+      <div class="container">
+        <h3>We're Hiring!</h3>
+        <p>Join the FodersGames team! Check out our current job openings and apply to become part of something epic.</p>
+        <a href="careers.html" class="btn-orange">View Careers</a>
+      </div>
+    </section>
+    <!-- Contact Section -->
+    <section class="contact-section">
+      <div class="container">
+        <p>For more details or inquiries, feel free to reach out to us:</p>
+        <a href="mailto:fodersgames@gmail.com" class="btn">Contact Us</a>
       </div>
     </section>
   </main>
@@ -340,18 +359,17 @@
     </div>
   </footer>
   <script>
-    // Récupération des données depuis le localStorage (on utilise ici les mêmes clés que dans profil.html et login.html)
+    // Retrieve profile info from localStorage
     window.onload = function() {
       const name = localStorage.getItem("name");
-      const profilePic = localStorage.getItem("profilePic");  // Assurez-vous d'utiliser "profilePic" (sans tiret)
-      
+      const profilePic = localStorage.getItem("profilePic");
       if (name) {
         document.getElementById("profile-name").textContent = name;
       }
       if (profilePic) {
         document.getElementById("profile-pic").src = profilePic;
       }
-    }
+    };
   </script>
 </body>
 </html>
