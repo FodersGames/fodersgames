@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status des Services - FodersGames</title>
+    <link rel="stylesheet" href="style.css"> <!-- Si tu as un fichier CSS externe -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .panel {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .panel h2 {
+            text-align: center;
+            color: #333;
+        }
+        .service-status {
+            list-style: none;
+            padding: 0;
+        }
+        .service-status li {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .service-status li.online {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .service-status li.offline {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .service-status li.maintenance {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        .last-checked {
+            font-size: 0.8rem;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="panel">
+            <h2>Statut des Services</h2>
+            <ul class="service-status" id="status-list">
+                <!-- Les services seront chargés ici -->
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        async function fetchStatus() {
+            try {
+                const response = await fetch('https://fodersgames.github.io/fodersgames/status.json');
+                const data = await response.json();
+
+                const statusList = document.getElementById('status-list');
+                statusList.innerHTML = ''; // Réinitialiser la liste avant d'ajouter les nouveaux éléments
+
+                data.services.forEach(service => {
+                    const li = document.createElement('li');
+                    li.classList.add(service.status.toLowerCase());
+
+                    li.innerHTML = `
+                        <span>${service.name}</span>
+                        <span>${service.status}</span>
+                        <span class="last-checked">Dernière vérification : ${new Date(service.lastChecked).toLocaleString()}</span>
+                    `;
+
+                    statusList.appendChild(li);
+                });
+            } catch (error) {
+                console.error("Erreur lors du chargement des données de statut :", error);
+            }
+        }
+
+        // Charger les statuts dès le chargement de la page
+        window.onload = fetchStatus;
+    </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+    "services": [
+      {
+        "name": "Serveur de Jeu",
+        "status": "En ligne",
+        "lastChecked": "2025-02-10T12:00:00"
+      },
+      {
+        "name": "Site Web",
+        "status": "En ligne",
+        "lastChecked": "2025-02-10T12:00:00"
+      }
+    ]
+  }
+  
