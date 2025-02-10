@@ -46,7 +46,7 @@
       margin-bottom: 20px;
     }
     .login-container input {
-      width: 100%;
+      width: 80%;
       padding: 12px;
       margin: 10px 0;
       border: 1px solid #ccc;
@@ -86,6 +86,44 @@
       box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
       font-size: 14px;
     }
+    .input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+#info-btn {
+  position: absolute;
+  right: 10px;  /* Distance du bord droit */
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#info-popup {
+  display: none;
+  position: absolute;
+  background: #333;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  max-width: 200px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  right: 35px;  /* Ajuste la position du texte */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
   </style>
 </head>
 <body>
@@ -93,6 +131,12 @@
 
   <main>
     <section class="login-container">
+        <div class="input-container">
+           
+            <button id="info-btn">?</button>
+            <div id="info-popup" class="info-popup">This account is stored locally and can only be accessed from the device it was created on.</div>
+          </div>
+          
       <h2 id="form-title">Login to FodersGames</h2>
       <form id="auth-form">
         <input type="email" id="email" placeholder="Email">
@@ -224,6 +268,16 @@
 
     // By default, the form is in Login mode
     document.getElementById('auth-form').onsubmit = loginHandler;
+
+    document.getElementById('info-btn').addEventListener('mouseenter', function() {
+  const popup = document.getElementById('info-popup');
+  popup.style.display = 'block';
+});
+
+document.getElementById('info-btn').addEventListener('mouseleave', function() {
+  document.getElementById('info-popup').style.display = 'none';
+});
+
   </script>
 </body>
 </html>
