@@ -74,23 +74,23 @@
       font-size: 16px;
       color: #333;
     }
-    /* Ajustements pour petits écrans : placer la zone profil en haut à droite mais en plus petit */
+    /* Ajustements pour petits écrans */
     @media (max-width: 600px) {
       .profile-info {
-         position: absolute;
-         top: 5px;
-         right: 5px;
-         padding: 2px 4px;
-         border: 1px solid #000;
-         border-radius: 6px;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        padding: 2px 4px;
+        border: 1px solid #000;
+        border-radius: 6px;
       }
       .profile-info img {
-         width: 30px;
-         height: 30px;
-         margin-right: 5px;
+        width: 30px;
+        height: 30px;
+        margin-right: 5px;
       }
       .profile-info span {
-         font-size: 12px;
+        font-size: 12px;
       }
     }
     .hero {
@@ -340,13 +340,13 @@
     </div>
   </footer>
   <script>
-    // Récupération des données depuis le localStorage (clés utilisées dans profil.html : "name" et "profilePic")
+    // Récupération des données depuis le localStorage (on utilise ici les mêmes clés que dans profil.html et login.html)
     window.onload = function() {
       const name = localStorage.getItem("name");
-      const profilePic = localStorage.getItem("profile-pic");
-
+      const profilePic = localStorage.getItem("profilePic");  // Assurez-vous d'utiliser "profilePic" (sans tiret)
+      
       if (name) {
-        document.getElementById("name").textContent = name;
+        document.getElementById("profile-name").textContent = name;
       }
       if (profilePic) {
         document.getElementById("profile-pic").src = profilePic;

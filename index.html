@@ -1,231 +1,229 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FodersGames - Login</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f8f9fa;
-            color: #333;
-            overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        .banner {
-            background-color: #fff;
-            color: black;
-            padding: 20px;
-            text-align: center;
-            font-size: 1.5em;
-            font-weight: bold;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        main {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 50px 0;
-        }
-
-        .login-container {
-            width: 100%;
-            max-width: 400px;
-            padding: 20px;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .login-container h2 {
-            margin-bottom: 20px;
-        }
-
-        .login-container input {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        .error {
-            color: red;
-            font-size: 14px;
-            margin-top: -8px;
-            margin-bottom: 10px;
-            display: none;
-        }
-
-        .login-container input[type="submit"] {
-            background: #007bff;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-            border: none;
-        }
-
-        .login-container input[type="submit"]:hover {
-            background: #0056b3;
-        }
-
-        .btn-link {
-            display: block;
-            margin-top: 15px;
-            color: #007bff;
-            text-decoration: none;
-        }
-
-        .btn-link:hover {
-            text-decoration: underline;
-        }
-
-        footer {
-            background: #fff;
-            text-align: center;
-            padding: 20px;
-            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
-            font-size: 14px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FodersGames - Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8f9fa;
+      color: #333;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .banner {
+      background-color: #fff;
+      color: black;
+      padding: 20px;
+      text-align: center;
+      font-size: 1.5em;
+      font-weight: bold;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 50px 0;
+    }
+    .login-container {
+      width: 100%;
+      max-width: 400px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    .login-container h2 {
+      margin-bottom: 20px;
+    }
+    .login-container input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    .error {
+      color: red;
+      font-size: 14px;
+      margin-top: -8px;
+      margin-bottom: 10px;
+      display: none;
+    }
+    .login-container input[type="submit"] {
+      background: #007bff;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+    }
+    .login-container input[type="submit"]:hover {
+      background: #0056b3;
+    }
+    .btn-link {
+      display: block;
+      margin-top: 15px;
+      color: #007bff;
+      text-decoration: none;
+    }
+    .btn-link:hover {
+      text-decoration: underline;
+    }
+    footer {
+      background: #fff;
+      text-align: center;
+      padding: 20px;
+      box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
-    <div class="banner">FodersGames</div>
+  <div class="banner">FodersGames</div>
 
-    <main>
-        <section class="login-container">
-            <h2>Login</h2>
-            <form id="auth-form">
-                <input type="email" id="email" placeholder="Email">
-                <p class="error" id="email-error">Veuillez entrer une adresse email valide.</p>
+  <main>
+    <section class="login-container">
+      <h2 id="form-title">Connexion à FodersGames</h2>
+      <form id="auth-form">
+        <input type="email" id="email" placeholder="Email">
+        <p class="error" id="email-error">Veuillez entrer une adresse email valide.</p>
 
-                <input type="password" id="password" placeholder="Mot de passe">
-                <p class="error" id="password-error">Mot de passe incorrect.</p>
+        <input type="password" id="password" placeholder="Mot de passe">
+        <p class="error" id="password-error">Mot de passe incorrect.</p>
 
-                <input type="submit" value="Login">
-            </form>
-            <a href="javascript:void(0);" class="btn-link" id="toggle-register">Pas encore de compte ? Inscrivez-vous</a>
-        </section>
-    </main>
+        <input type="submit" value="Login">
+      </form>
+      <a href="javascript:void(0);" class="btn-link" id="toggle-register">Pas encore de compte ? Inscrivez-vous</a>
+    </section>
+  </main>
 
-    <footer>
-        <p>&copy; 2025 FodersGames. Tous droits réservés.</p>
-    </footer>
+  <footer>
+    <p>&copy; 2025 FodersGames. Tous droits réservés.</p>
+  </footer>
 
-    <script>
-        document.getElementById('toggle-register').addEventListener('click', function() {
-            var form = document.getElementById('auth-form');
-            var submitButton = form.querySelector('input[type="submit"]');
-            var formTitle = document.querySelector('.login-container h2');
+  <script>
+    // Bascule entre mode Login et Register
+    document.getElementById('toggle-register').addEventListener('click', function() {
+      var form = document.getElementById('auth-form');
+      var submitButton = form.querySelector('input[type="submit"]');
+      var formTitle = document.getElementById('form-title');
 
-            if (submitButton.value === 'Login') {
-                submitButton.value = 'Register';
-                form.innerHTML = `
-                    <input type="email" id="email" placeholder="Email">
-                    <p class="error" id="email-error">Veuillez entrer une adresse email valide.</p>
+      if (submitButton.value === 'Login') {
+        // Passage au mode Inscription
+        form.innerHTML = `
+          <input type="email" id="email" placeholder="Email">
+          <p class="error" id="email-error">Veuillez entrer une adresse email valide.</p>
 
-                    <input type="password" id="password" placeholder="Mot de passe">
-                    <p class="error" id="password-error">Le mot de passe doit contenir au moins 6 caractères.</p>
+          <input type="password" id="password" placeholder="Mot de passe">
+          <p class="error" id="password-error">Le mot de passe doit contenir au moins 6 caractères.</p>
 
-                    <input type="password" id="confirm-password" placeholder="Confirmez le mot de passe">
-                    <p class="error" id="confirm-password-error">Les mots de passe ne correspondent pas.</p>
+          <input type="password" id="confirm-password" placeholder="Confirmez le mot de passe">
+          <p class="error" id="confirm-password-error">Les mots de passe ne correspondent pas.</p>
 
-                    <input type="submit" value="Register">
-                `;
-                formTitle.textContent = "Inscription à FodersGames";
-                document.getElementById('toggle-register').textContent = "Déjà un compte ? Connectez-vous";
-                form.onsubmit = registerHandler;
-            } else {
-                submitButton.value = 'Login';
-                form.innerHTML = `
-                    <input type="email" id="email" placeholder="Email">
-                    <p class="error" id="email-error">Veuillez entrer une adresse email valide.</p>
+          <input type="submit" value="Register">
+        `;
+        formTitle.textContent = "Inscription à FodersGames";
+        document.getElementById('toggle-register').textContent = "Déjà un compte ? Connectez-vous";
+        form.onsubmit = registerHandler;
+      } else {
+        // Retour au mode Connexion
+        form.innerHTML = `
+          <input type="email" id="email" placeholder="Email">
+          <p class="error" id="email-error">Veuillez entrer une adresse email valide.</p>
 
-                    <input type="password" id="password" placeholder="Mot de passe">
-                    <p class="error" id="password-error">Mot de passe incorrect.</p>
+          <input type="password" id="password" placeholder="Mot de passe">
+          <p class="error" id="password-error">Mot de passe incorrect.</p>
 
-                    <input type="submit" value="Login">
-                `;
-                formTitle.textContent = "Connexion à FodersGames";
-                document.getElementById('toggle-register').textContent = "Pas encore de compte ? Inscrivez-vous";
-                form.onsubmit = loginHandler;
-            }
-        });
+          <input type="submit" value="Login">
+        `;
+        formTitle.textContent = "Connexion à FodersGames";
+        document.getElementById('toggle-register').textContent = "Pas encore de compte ? Inscrivez-vous";
+        form.onsubmit = loginHandler;
+      }
+    });
 
-        function showError(id, message) {
-            const errorElement = document.getElementById(id);
-            errorElement.textContent = message;
-            errorElement.style.display = "block";
-        }
+    function showError(id, message) {
+      const errorElement = document.getElementById(id);
+      errorElement.textContent = message;
+      errorElement.style.display = "block";
+    }
 
-        function hideErrors() {
-            document.querySelectorAll('.error').forEach(el => el.style.display = "none");
-        }
+    function hideErrors() {
+      document.querySelectorAll('.error').forEach(el => el.style.display = "none");
+    }
 
-        function loginHandler(event) {
-            event.preventDefault();
-            hideErrors();
+    function loginHandler(event) {
+      event.preventDefault();
+      hideErrors();
 
-            const email = document.getElementById('email').value.trim();
-            const password = document.getElementById('password').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
 
-            if (!email.includes('@') || !email.includes('.')) {
-                showError('email-error', 'Veuillez entrer une adresse email valide.');
-                return;
-            }
+      if (!email.includes('@') || !email.includes('.')) {
+        showError('email-error', 'Veuillez entrer une adresse email valide.');
+        return;
+      }
 
-            const user = JSON.parse(localStorage.getItem(email));
+      const user = JSON.parse(localStorage.getItem(email));
 
-            if (user && user.password === password) {
-                window.location.href = 'home.html';
-            } else {
-                showError('password-error', 'Mot de passe incorrect.');
-            }
-        }
+      if (user && user.password === password) {
+        window.location.href = 'home.html';
+      } else {
+        showError('password-error', 'Mot de passe incorrect.');
+      }
+    }
 
-        function registerHandler(event) {
-            event.preventDefault();
-            hideErrors();
+    function registerHandler(event) {
+      event.preventDefault();
+      hideErrors();
 
-            const email = document.getElementById('email').value.trim();
-            const password = document.getElementById('password').value.trim();
-            const confirmPassword = document.getElementById('confirm-password').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const confirmPassword = document.getElementById('confirm-password').value.trim();
 
-            if (!email.includes('@') || !email.includes('.')) {
-                showError('email-error', 'Veuillez entrer une adresse email valide.');
-                return;
-            }
+      if (!email.includes('@') || !email.includes('.')) {
+        showError('email-error', 'Veuillez entrer une adresse email valide.');
+        return;
+      }
 
-            if (password.length < 6) {
-                showError('password-error', 'Le mot de passe doit contenir au moins 6 caractères.');
-                return;
-            }
+      if (password.length < 6) {
+        showError('password-error', 'Le mot de passe doit contenir au moins 6 caractères.');
+        return;
+      }
 
-            if (password !== confirmPassword) {
-                showError('confirm-password-error', 'Les mots de passe ne correspondent pas.');
-                return;
-            }
+      if (password !== confirmPassword) {
+        showError('confirm-password-error', 'Les mots de passe ne correspondent pas.');
+        return;
+      }
 
-            if (localStorage.getItem(email)) {
-                showError('email-error', 'Cet email est déjà utilisé.');
-                return;
-            }
+      if (localStorage.getItem(email)) {
+        showError('email-error', 'Cet email est déjà utilisé.');
+        return;
+      }
 
-            localStorage.setItem(email, JSON.stringify({ email, password }));
-            window.location.href = 'home.html';
-        }
+      // Stocker les informations utilisateur sous la clé email
+      localStorage.setItem(email, JSON.stringify({ email, password }));
 
-        document.getElementById('auth-form').onsubmit = loginHandler;
-    </script>
+      // Lors de l'inscription, définir les valeurs par défaut pour "name" et "profilePic"
+      const defaultName = email.split('@')[0];
+      localStorage.setItem("name", defaultName);
+      localStorage.setItem("profilePic", "https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_1280.png");
+
+      window.location.href = 'home.html';
+    }
+
+    // Par défaut, le formulaire est en mode Login
+    document.getElementById('auth-form').onsubmit = loginHandler;
+  </script>
 </body>
 </html>
