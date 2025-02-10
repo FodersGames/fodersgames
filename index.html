@@ -1,362 +1,231 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FodersGames - Home</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>FodersGames - Login</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <style>
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background: #fff;
+            background: #f8f9fa;
             color: #333;
             overflow-x: hidden;
-        }
-        header {
-            background: #fff;
-            padding: 20px 0;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 1.5s ease-out;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            max-width: 1200px;
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
             display: flex;
-            justify-content: center;
-            gap: 20px;
+            flex-direction: column;
+            min-height: 100vh;
         }
-        nav ul li a {
-            color: #333;
-            text-decoration: none;
-            font-weight: 700;
-            transition: color 0.3s ease;
+
+        .banner {
+            background-color: #fff;
+            color: black;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        nav ul li a:hover {
-            color: #007bff;
-        }
-        .hero {
+
+        main {
+            flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 80vh;
-            text-align: center;
-            background: url('hero-bg-light.jpg') no-repeat center center/cover;
-            position: relative;
-            border-radius: 10px;
-            animation: slideIn 1.5s ease-out;
-        }
-        .hero h2, .hero p {
-            opacity: 0;
-            animation: fadeIn 2s forwards;
-        }
-        .hero h2 {
-            animation-delay: 0.5s;
-        }
-        .hero p {
-            animation-delay: 1s;
-        }
-        .games-showcase {
             padding: 50px 0;
-            text-align: center;
         }
-        .game-card {
-            background: #fff;
+
+        .login-container {
+            width: 100%;
+            max-width: 400px;
             padding: 20px;
+            background: #fff;
             border-radius: 10px;
-            width: 400px;
-            margin: auto;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             text-align: center;
-            transform: translateY(30px);
-            opacity: 0;
-            animation: slideUp 1.5s forwards;
         }
-        .coming-soon-box {
-            display: inline-block;
-            padding: 5px 10px;
-            border: 2px solid #007bff;
+
+        .login-container h2 {
+            margin-bottom: 20px;
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: -8px;
+            margin-bottom: 10px;
+            display: none;
+        }
+
+        .login-container input[type="submit"] {
+            background: #007bff;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+        }
+
+        .login-container input[type="submit"]:hover {
+            background: #0056b3;
+        }
+
+        .btn-link {
+            display: block;
+            margin-top: 15px;
             color: #007bff;
-            font-weight: bold;
-            font-size: 12px;
-            border-radius: 5px;
-            animation: bounceIn 1s ease-out;
+            text-decoration: none;
         }
 
-        .store-title {
-            display: inline-block;
-            padding: 5px 10px;
-            border: 2px solid #ffc800;
-            color: #ffc800;
-            font-weight: bold;
-            font-size: 12px;
-            border-radius: 5px;
-            animation: bounceIn 1s ease-out;
+        .btn-link:hover {
+            text-decoration: underline;
         }
 
-        .btn {
-            display: inline-block;
-            padding: 15px 30px;
-            background: #007bff;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: background 0.3s ease, transform 0.3s ease;
-        }
-        .btn:hover {
-            background: #0056b3;
-            transform: scale(1.1);
-        }
-        .btn-orange {
-            display: inline-block;
-            padding: 15px 30px;
-            background: #007bff;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: background 0.3s ease, transform 0.3s ease;
-            margin-top: 15px;
-        }
-        .btn-orange:hover {
-            background: #0056b3;
-            transform: scale(1.1);
-        }
-        .btn-store {
-            display: inline-block;
-            padding: 15px 30px;
-            background: #ffc800;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: background 0.3s ease, transform 0.3s ease;
-            margin-top: 15px;
-        }
-        .btn-store:hover {
-            background: #de9c01;
-            transform: scale(1.1);
-        }
         footer {
             background: #fff;
             text-align: center;
-            padding: 20px 0;
+            padding: 20px;
             box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideIn {
-            from {
-                transform: translateY(30px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideUp {
-            from {
-                transform: translateY(30px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes bounceIn {
-            0% {
-                transform: scale(0);
-            }
-            60% {
-                transform: scale(1.2);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        /* Adjustments for mobile */
-        @media (max-width: 768px) {
-            .container {
-                width: 90%;
-            }
-            .hero {
-                height: 60vh;
-            }
-            .game-card {
-                width: 90%;
-                margin-bottom: 30px;
-            }
-            .btn {
-                padding: 12px 24px;
-            }
-            .btn-orange {
-                padding: 12px 24px;
-            }
-        }
-
-        /* Career Section Styling */
-        .career-section {
-            padding: 50px 0;
-            text-align: center;
-            background: #007bff;
-            color: white;
-            border-radius: 10px;
-            margin-top: 50px;
-        }
-
-        .career-section .game-card {
-            background: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            width: 400px;
-            margin: auto;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            transform: translateY(30px);
-            opacity: 0;
-            animation: slideUp 1.5s forwards;
-        }
-
-        .career-section h3 {
-            font-size: 26px;
-            color: white;
-            font-weight: 700;
-            margin-bottom: 15px;
-            animation: fadeIn 1.5s ease-out;
-        }
-
-        .career-section p {
-            font-size: 18px;
-            color: white;
-            margin: 15px 0;
-            animation: fadeIn 2s ease-out;
-            animation-delay: 0.5s;
-        }
-
-        .career-section .btn-orange {
-            display: inline-block;
-            padding: 15px 30px;
-            background: #fff;
-            color: #007bff;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: background 0.3s ease, transform 0.3s ease;
-            margin-top: 15px;
-        }
-
-        .career-section .btn-orange:hover {
-            background: #0056b3;
-            color: white;
-            transform: scale(1.1);
-        }
-
-        /* Contact Section Styling */
-        .contact-section {
-            padding: 50px 0;
-            text-align: center;
-        }
-
-        .contact-section p {
-            font-size: 16px;
-            color: #666;
-            margin: 15px 0;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>FodersGames</h1>
-            <nav>
-                <ul>
-                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="jeux.html"><i class="fas fa-gamepad"></i> Games</a></li>
-                    <li><a href="apropos.html"><i class="fas fa-info-circle"></i> About</a></li>
-                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <div class="banner">FodersGames</div>
+
     <main>
-        <section class="hero">
-            <div class="container">
-                <h2>Welcome to FodersGames</h2>
-                <p>Immersive and innovative gaming experiences.</p>
-                <a href="jeux.html" class="btn">Discover Our Games</a>
-            </div>
-        </section>
-        <section class="games-showcase">
-            <div class="container">
-                <div class="game-card">
-                    <span class="coming-soon-box">Rise of Empires</span>
-                    <h3>Build Your Empire...</h3>
-                    <p>Prepare to develop and upgrade your empire. Stay tuned for the launch of this exciting strategy game!</p>
-                    <a href="game1.html" class="btn-orange">Learn More</a>
-                </div>
-            </div>
-        </section>
+        <section class="login-container">
+            <h2>Login</h2>
+            <form id="auth-form">
+                <input type="email" id="email" placeholder="Email">
+                <p class="error" id="email-error">Veuillez entrer une adresse email valide.</p>
 
-        <section class="games-showcase">
-            <div class="container">
-                <div class="game-card">
-                    <span class="coming-soon-box">Store </span>
-                    <h3>Enhance Your Gaming Experience</h3>
-                    <p>Purchase in-game coins, upgrades, and special items to boost your adventure. Unlock new content and features with ease!</p>
-                    <a href="#" class="btn-orange">Visit Store</a>
+                <input type="password" id="password" placeholder="Mot de passe">
+                <p class="error" id="password-error">Mot de passe incorrect.</p>
 
-
-                </div>
-            </div>
+                <input type="submit" value="Login">
+            </form>
+            <a href="javascript:void(0);" class="btn-link" id="toggle-register">Pas encore de compte ? Inscrivez-vous</a>
         </section>
-        
-        </section>
-
-        <!-- Career Section -->
-        <section class="career-section">
-            <div class="container">
-                <h3>We're Hiring!</h3>
-                <p>Join the FodersGames team! Check out our current job openings and apply to become part of something epic.</p>
-                <a href="careers.html" class="btn-orange">View Careers</a>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section class="contact-section">
-            <div class="container">
-                <p>For more details or inquiries, feel free to reach out to us:</p>
-                <a href="mailto:fodersgames@gmail.com" class="btn">Contact Us</a>
-            </div>
-        </section>
-        
     </main>
+
     <footer>
-        <div class="container">
-            <p>&copy; 2025 FodersGames. All rights reserved.</p>
-        </div>
+        <p>&copy; 2025 FodersGames. Tous droits réservés.</p>
     </footer>
+
+    <script>
+        document.getElementById('toggle-register').addEventListener('click', function() {
+            var form = document.getElementById('auth-form');
+            var submitButton = form.querySelector('input[type="submit"]');
+            var formTitle = document.querySelector('.login-container h2');
+
+            if (submitButton.value === 'Login') {
+                submitButton.value = 'Register';
+                form.innerHTML = `
+                    <input type="email" id="email" placeholder="Email">
+                    <p class="error" id="email-error">Veuillez entrer une adresse email valide.</p>
+
+                    <input type="password" id="password" placeholder="Mot de passe">
+                    <p class="error" id="password-error">Le mot de passe doit contenir au moins 6 caractères.</p>
+
+                    <input type="password" id="confirm-password" placeholder="Confirmez le mot de passe">
+                    <p class="error" id="confirm-password-error">Les mots de passe ne correspondent pas.</p>
+
+                    <input type="submit" value="Register">
+                `;
+                formTitle.textContent = "Inscription à FodersGames";
+                document.getElementById('toggle-register').textContent = "Déjà un compte ? Connectez-vous";
+                form.onsubmit = registerHandler;
+            } else {
+                submitButton.value = 'Login';
+                form.innerHTML = `
+                    <input type="email" id="email" placeholder="Email">
+                    <p class="error" id="email-error">Veuillez entrer une adresse email valide.</p>
+
+                    <input type="password" id="password" placeholder="Mot de passe">
+                    <p class="error" id="password-error">Mot de passe incorrect.</p>
+
+                    <input type="submit" value="Login">
+                `;
+                formTitle.textContent = "Connexion à FodersGames";
+                document.getElementById('toggle-register').textContent = "Pas encore de compte ? Inscrivez-vous";
+                form.onsubmit = loginHandler;
+            }
+        });
+
+        function showError(id, message) {
+            const errorElement = document.getElementById(id);
+            errorElement.textContent = message;
+            errorElement.style.display = "block";
+        }
+
+        function hideErrors() {
+            document.querySelectorAll('.error').forEach(el => el.style.display = "none");
+        }
+
+        function loginHandler(event) {
+            event.preventDefault();
+            hideErrors();
+
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            if (!email.includes('@') || !email.includes('.')) {
+                showError('email-error', 'Veuillez entrer une adresse email valide.');
+                return;
+            }
+
+            const user = JSON.parse(localStorage.getItem(email));
+
+            if (user && user.password === password) {
+                window.location.href = 'home.html';
+            } else {
+                showError('password-error', 'Mot de passe incorrect.');
+            }
+        }
+
+        function registerHandler(event) {
+            event.preventDefault();
+            hideErrors();
+
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const confirmPassword = document.getElementById('confirm-password').value.trim();
+
+            if (!email.includes('@') || !email.includes('.')) {
+                showError('email-error', 'Veuillez entrer une adresse email valide.');
+                return;
+            }
+
+            if (password.length < 6) {
+                showError('password-error', 'Le mot de passe doit contenir au moins 6 caractères.');
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                showError('confirm-password-error', 'Les mots de passe ne correspondent pas.');
+                return;
+            }
+
+            if (localStorage.getItem(email)) {
+                showError('email-error', 'Cet email est déjà utilisé.');
+                return;
+            }
+
+            localStorage.setItem(email, JSON.stringify({ email, password }));
+            window.location.href = 'home.html';
+        }
+
+        document.getElementById('auth-form').onsubmit = loginHandler;
+    </script>
 </body>
 </html>
