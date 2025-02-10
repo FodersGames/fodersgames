@@ -35,9 +35,9 @@
     }
     .profile-container {
       width: 80%;
-      max-width: 320px; /* Réduction de la taille */
+      max-width: 320px; /* Taille réduite */
       margin: auto;
-      padding: 20px; /* Réduction du padding */
+      padding: 20px; /* Padding réduit */
       border-radius: 10px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       background: #fff;
@@ -46,7 +46,7 @@
       margin-bottom: 40px;
     }
     .profile-pic {
-      width: 100px; /* Réduction de la taille de l’image */
+      width: 100px; /* Taille réduite de l’image */
       height: 100px;
       border-radius: 50%;
       object-fit: cover;
@@ -104,6 +104,7 @@
       display: block;
       margin-bottom: 5px;
     }
+    /* On garde les champs Name, Bio et Password uniquement */
     .input-group input, .input-group textarea {
       width: 90%;
       padding: 8px; /* Champs plus petits */
@@ -134,10 +135,7 @@
         <label for="name">Name</label>
         <input type="text" id="name" placeholder="Your name">
       </div>
-      <div class="input-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" placeholder="Your email">
-      </div>
+      <!-- Le champ Email a été retiré pour conserver l'email de connexion inchangé -->
       <div class="input-group">
         <label for="bio">Bio</label>
         <textarea id="bio" placeholder="Tell something about yourself..."></textarea>
@@ -155,50 +153,25 @@
   </main>
 
   <script>
-    // Lors du chargement de la page, remplir les champs avec les valeurs stockées
     document.addEventListener("DOMContentLoaded", function() {
+      // Remplit les champs Name et Bio et l'image de profil depuis localStorage
       document.getElementById("name").value = localStorage.getItem("name") || "";
-      document.getElementById("email").value = localStorage.getItem("email") || "";
       document.getElementById("bio").value = localStorage.getItem("bio") || "";
       document.getElementById("profile-pic").src = localStorage.getItem("profilePic") || "https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_1280.png";
     });
     
     function saveProfile() {
-      // Récupérer l'ancien email stocké (pour l'identifier dans l'objet utilisateur)
-      const oldEmail = localStorage.getItem("email") || "";
-      const newEmail = document.getElementById("email").value;
-      
-      // Mettre à jour les autres informations
+      // Met à jour Name, Bio et Password (si modifié)
       localStorage.setItem("name", document.getElementById("name").value);
       localStorage.setItem("bio", document.getElementById("bio").value);
-      
       let password = document.getElementById("password").value;
       if (password.length > 0) {
         localStorage.setItem("password", password);
       }
-      
-      // Si l'email a été modifié, mettre à jour l'objet utilisateur stocké sous l'ancien email
-      if (newEmail !== oldEmail) {
-        const userObj = JSON.parse(localStorage.getItem(oldEmail));
-        if (userObj) {
-          // Supprimer l'ancien enregistrement
-          localStorage.removeItem(oldEmail);
-          // Mettre à jour l'email dans l'objet
-          userObj.email = newEmail;
-          // Enregistrer l'objet utilisateur sous la nouvelle clé
-          localStorage.setItem(newEmail, JSON.stringify(userObj));
-        }
-      }
-      
-      // Mettre à jour la clé "email" pour la connexion
-      localStorage.setItem("email", newEmail);
-      
-      // Afficher le message de succès
       document.getElementById("success-message").style.display = "block";
       setTimeout(() => document.getElementById("success-message").style.display = "none", 3000);
     }
     
-    // Gestion du changement d'image de profil
     document.getElementById("file-input").addEventListener("change", function(event) {
       let reader = new FileReader();
       reader.onload = function() {
