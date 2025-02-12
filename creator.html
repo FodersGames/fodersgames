@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FodersGames - Content Creator Recruitment</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    /* --- Global Reset & Base Styles --- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f8f8f8;
+      color: #333;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    /* --- Header --- */
+    header {
+      background: #fff;
+      padding: 20px 0;
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .header-title {
+      text-align: center;
+    }
+    .header-title h1 {
+      font-size: 2rem;
+      color: #27ae60;
+      margin: 0;
+    }
+    .header-nav {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .header-nav nav ul {
+      list-style: none;
+      display: inline-flex;
+      gap: 20px;
+      padding: 0;
+      margin: 0;
+    }
+    .header-nav nav ul li {
+      font-weight: 600;
+    }
+    .header-nav nav ul li a {
+      color: #333;
+      transition: color 0.3s ease;
+    }
+    .header-nav nav ul li a:hover {
+      color: #27ae60;
+    }
+    
+    /* --- Hero Section --- */
+    .hero {
+      height: 70vh;
+      background: linear-gradient(135deg, #27ae60, #2ecc71);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      text-align: center;
+      color: #fff;
+      padding: 20px;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.25);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* --- Conditions & Rules Section --- */
+    .conditions {
+      background: #fff;
+      padding: 40px 20px;
+      margin: 40px auto;
+      max-width: 800px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .conditions h3 {
+      font-size: 2rem;
+      color: #27ae60;
+      margin-bottom: 20px;
+    }
+    .conditions ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+    .conditions ul li {
+      font-size: 1rem;
+      color: #555;
+      margin: 10px 0;
+    }
+    .conditions p {
+      font-size: 1rem;
+      color: #555;
+    }
+    
+    /* --- Application Form Section --- */
+    .application {
+      background: #fff;
+      padding: 40px;
+      margin-bottom: 60px;
+      border-radius: 8px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    }
+    .application h3 {
+      font-size: 1.8rem;
+      color: #27ae60;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .application form {
+      display: flex;
+      flex-direction: column;
+    }
+    .application form label {
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #333;
+    }
+    .application form input,
+    .application form textarea {
+      padding: 12px 15px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
+    .application form input:focus,
+    .application form textarea:focus {
+      border-color: #27ae60;
+      outline: none;
+    }
+    .application form button {
+      padding: 15px;
+      background: #27ae60;
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .application form button:hover {
+      background: #1e8449;
+      transform: translateY(-2px);
+    }
+    /* Character Count for Textarea */
+    .char-count {
+      text-align: right;
+      font-size: 0.9rem;
+      color: #999;
+      margin-top: -15px;
+      margin-bottom: 15px;
+    }
+    
+    /* --- FAQ Section --- */
+    .faq {
+      background: #fff;
+      padding: 40px 20px;
+      margin: 40px auto;
+      max-width: 800px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .faq h3 {
+      font-size: 2rem;
+      color: #27ae60;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .faq-item {
+      margin-bottom: 15px;
+    }
+    .faq-item h4 {
+      font-size: 1.2rem;
+      color: #27ae60;
+      cursor: pointer;
+      margin-bottom: 5px;
+    }
+    .faq-item p {
+      font-size: 1rem;
+      color: #555;
+      display: none;
+      padding-left: 15px;
+      border-left: 2px solid #27ae60;
+    }
+    
+    /* --- Footer --- */
+    footer {
+      background: #fff;
+      padding: 20px 0;
+      border-top: 1px solid #ddd;
+      text-align: center;
+    }
+    footer p {
+      font-size: 0.9rem;
+      color: #777;
+    }
+    
+    /* --- Responsive Adjustments --- */
+    @media (max-width: 768px) {
+      .hero h2 {
+        font-size: 2.5rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+      .header-title h1 {
+        font-size: 1.5rem;
+      }
+      .conditions, .application, .faq {
+        padding: 20px;
+      }
+      .application form input,
+      .application form textarea {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-title">
+        <h1>FodersGames</h1>
+      </div>
+      <div class="header-nav">
+        <nav>
+          <ul>
+            <li><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+            <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-content container">
+      <h2>Become a Content Creator for FodersGames</h2>
+      <p>Join our official Content Creator Program, receive your unique code, and start creating amazing content for FodersGames!</p>
+    </div>
+  </div>
+  
+  <!-- Conditions Section -->
+  <div class="conditions container">
+    <h3>Requirements & Conditions</h3>
+    <ul>
+      <li>Must have an active YouTube channel with a minimum of 50 subscribers</li>
+      <li>Must create at least one FodersGames-related video per month</li>
+      <li>Must follow all community guidelines and respect copyright rules</li>
+    </ul>
+    <p>If you meet these criteria, apply now!</p>
+  </div>
+  
+  <!-- Application Form Section -->
+  <div class="application container">
+    <h3>Application Form</h3>
+    <!-- Le formulaire n'a plus d'attribut action pour être géré par JavaScript -->
+    <form id="applicationForm">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="channelLink">Your Channel Link</label>
+      <input type="url" id="channelLink" name="channelLink" required />
+
+      <label for="message">Why do you want to join?</label>
+      <textarea id="message" name="message" rows="5" maxlength="500" required></textarea>
+      <div class="char-count" id="charCount">0/500</div>
+
+      <button type="submit">Submit Application</button>
+    </form>
+  </div>
+  
+  <!-- FAQ Section (Feature supplémentaire) -->
+  <div class="faq container">
+    <h3>Frequently Asked Questions</h3>
+    <div class="faq-item">
+      <h4>What benefits do I get as a Content Creator?</h4>
+      <p>You will receive a unique creator code, exclusive in-game rewards, and enhanced visibility on our website.</p>
+    </div>
+    <div class="faq-item">
+      <h4>How do I promote FodersGames?</h4>
+      <p>Create high-quality content such as gameplay videos, tutorials, and reviews that showcase our games and community.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Who can I contact for more information?</h4>
+      <p>You can reach out to us via our Contact page if you have any further questions.</p>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© 2025 FodersGames. All rights reserved.</p>
+    </div>
+  </footer>
+  
+  <script>
+    // --- Character Count for Textarea ---
+    const messageField = document.getElementById("message");
+    const charCountDisplay = document.getElementById("charCount");
+    messageField.addEventListener("input", function() {
+      const count = this.value.length;
+      charCountDisplay.textContent = `${count}/500`;
+    });
+
+    // --- FAQ Accordion Functionality ---
+    const faqItems = document.querySelectorAll(".faq-item h4");
+    faqItems.forEach(item => {
+      item.addEventListener("click", () => {
+        const answer = item.nextElementSibling;
+        answer.style.display = answer.style.display === "block" ? "none" : "block";
+      });
+    });
+
+    // --- Form Submission Handling ---
+    document.getElementById("applicationForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Empêche la soumission classique
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const channelLink = document.getElementById("channelLink").value;
+      const message = document.getElementById("message").value;
+
+      // Construction d'un mail au format texte avec des retours à la ligne (%0D%0A)
+      const emailBody = `Dear FodersGames Team,%0D%0A%0D%0A` +
+                        `I would like to apply as a Content Creator for FodersGames. Here are my details:%0D%0A%0D%0A` +
+                        `Name: ${name}%0D%0A` +
+                        `Email: ${email}%0D%0A` +
+                        `Channel Link: ${channelLink}%0D%0A%0D%0A` +
+                        `Why I want to join:%0D%0A${message}%0D%0A%0D%0A` +
+                        `Thank you for your consideration.%0D%0A` +
+                        `Best regards,%0D%0A${name}`;
+
+      // Création du lien mailto avec un objet et le corps formaté
+      const mailtoLink = `mailto:fodersgames@gmail.com?subject=${encodeURIComponent("Content Creator Application from " + name)}&body=${emailBody}`;
+      // Redirection vers le client mail pour envoyer le mail
+      window.location.href = mailtoLink;
+    });
+  </script>
+</body>
+</html>
