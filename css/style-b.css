@@ -1,0 +1,60 @@
+:root {
+  --bg: #080a12;
+  --panel: #14172b;
+  --border: #6d4cff;
+  --text: #ffffff;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+}
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px 40px;
+  border-bottom: 2px solid var(--border);
+}
+
+.logo {
+  font-weight: 900;
+}
+
+.nav a {
+  margin-left: 20px;
+  color: var(--text);
+}
+
+.hero {
+  margin: 40px;
+  padding: 80px;
+  background: var(--panel);
+  border: 2px solid var(--border);
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 44px;
+}
+
+.cta {
+  margin-top: 24px;
+  display: inline-block;
+  padding: 12px 24px;
+  border: 2px solid var(--border);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.block {
+  margin: 40px;
+  padding: 40px;
+  border: 2px solid var(--border);
+}
+
+.footer {
+  padding: 20px;
+  text-align: center;
+}

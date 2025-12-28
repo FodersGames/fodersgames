@@ -1,0 +1,206 @@
+:root {
+  --bg: #ffffff;
+  --text: #0b0d14;
+  --text-muted: #6b6f82;
+
+  --accent-1: #6d4cff;
+  --accent-2: #3b6cff;
+
+  --border: #e6e8f0;
+}
+
+/* ================= RESET ================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ================= BASE ================= */
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* ================= HEADER ================= */
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 48px;
+  border-bottom: 1px solid var(--border);
+}
+
+.logo img {
+  height: 32px;
+  width: auto;
+}
+
+/* ================= NAV ================= */
+
+.nav a {
+  margin-left: 32px;
+  text-decoration: none;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.nav a:hover {
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+  padding: 150px 48px 130px;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.hero h1 {
+  font-size: 58px;
+  font-weight: 900;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+  font-size: 18px;
+  max-width: 620px;
+  color: var(--text-muted);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 48px;
+  bottom: 60px;
+  width: 140px;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+}
+
+/* ================= CONTENT BLOCKS ================= */
+
+.block {
+  max-width: 1100px;
+  margin: 0 auto 110px;
+  padding: 84px 60px;
+  background: linear-gradient(180deg, #fafbff 0%, #f3f5fb 100%);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  position: relative;
+  animation: fadeUp 0.8s ease both;
+  box-shadow: 0 14px 36px rgba(15, 23, 42, 0.08);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.block:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 52px rgba(15, 23, 42, 0.12);
+}
+
+.block::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 28px;
+  bottom: 28px;
+  width: 4px;
+  border-radius: 2px;
+  background: linear-gradient(
+    180deg,
+    var(--accent-1),
+    var(--accent-2)
+  );
+}
+
+/* ================= ICONS (CORRIGÉ) ================= */
+
+.block img {
+  width: 56px;
+  height: 56px;
+  margin-bottom: 24px;
+  padding: 14px;
+  border-radius: 16px;
+
+  background: linear-gradient(
+    135deg,
+    var(--accent-1),
+    var(--accent-2)
+  );
+
+  box-shadow:
+    0 8px 18px rgba(109, 76, 255, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.15);
+
+  /* IMPORTANT : icônes blanches */
+  filter: none;
+}
+
+/* ================= TEXT ================= */
+
+.block h2 {
+  font-size: 38px;
+  margin-bottom: 18px;
+  letter-spacing: -0.02em;
+}
+
+.block p {
+  max-width: 720px;
+  font-size: 16px;
+  color: var(--text-muted);
+}
+
+/* ================= FOOTER ================= */
+
+.footer {
+  padding: 56px;
+  text-align: center;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+}
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 120px 28px 100px;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .block {
+    padding: 60px 32px;
+  }
+
+  .nav a {
+    margin-left: 18px;
+  }
+}

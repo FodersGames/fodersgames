@@ -1,0 +1,243 @@
+:root {
+  --bg: #ffffff;
+  --text: #0b0d14;
+  --text-muted: #6b6f82;
+
+  --accent-1: #6d4cff;
+  --accent-2: #3b6cff;
+
+  --border: #e6e8f0;
+}
+
+/* ================= RESET ================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ================= BASE ================= */
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+               Roboto, Inter, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* ================= HEADER ================= */
+
+.site-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 24px 48px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ================= NAV ================= */
+
+.nav a {
+  margin-left: 32px;
+  text-decoration: none;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.nav a:hover,
+.nav a.active {
+  color: var(--text);
+}
+
+/* ================= HERO ================= */
+
+.hero {
+  padding: 150px 48px 130px;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.hero h1 {
+  font-size: 56px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+  font-size: 18px;
+  max-width: 620px;
+  color: var(--text-muted);
+}
+
+/* ================= CONTENT BLOCK ================= */
+
+.block {
+  max-width: 1100px;
+  margin: 0 auto 96px;
+  padding: 72px 56px;
+
+  background: linear-gradient(180deg, #fafbff 0%, #f3f5fb 100%);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+
+  position: relative; /* 🔧 FIX CRITIQUE */
+}
+
+/* Accent bar */
+.block::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 28px;
+  bottom: 28px;
+  width: 4px;
+  border-radius: 2px;
+  background: linear-gradient(
+    180deg,
+    var(--accent-1),
+    var(--accent-2)
+  );
+}
+
+/* ================= ICONS ================= */
+
+.block img {
+  width: 56px;
+  height: 56px;
+  margin-bottom: 24px;
+  padding: 14px;
+  border-radius: 16px;
+
+  background: linear-gradient(
+    135deg,
+    var(--accent-1),
+    var(--accent-2)
+  );
+}
+
+/* ================= TEXT ================= */
+
+.block h2 {
+  font-size: 38px;
+  margin-bottom: 18px;
+  letter-spacing: -0.02em;
+}
+
+.block p {
+  max-width: 720px;
+  font-size: 16px;
+  color: var(--text-muted);
+}
+
+/* ================= CAREERS – SIMPLE & STABLE ================= */
+
+.job {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  margin-bottom: 20px;
+  background: #ffffff;
+}
+
+.job summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 22px 26px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-weight: 600;
+}
+
+.job summary::-webkit-details-marker {
+  display: none;
+}
+
+.job summary img {
+  width: 38px;
+  height: 38px;
+  padding: 9px;
+  border-radius: 10px;
+  background: linear-gradient(
+    135deg,
+    var(--accent-1),
+    var(--accent-2)
+  );
+}
+
+.job summary span {
+  flex: 1;
+  font-size: 16px;
+}
+
+.job summary em {
+  font-style: normal;
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #f3f4fa;
+  color: var(--text-muted);
+}
+
+/* CONTENT */
+.job-content {
+  padding: 0 26px 26px;
+  color: var(--text-muted);
+}
+
+.job-content p {
+  margin-top: 14px;
+}
+
+/* ================= CONTACT BUTTON ================= */
+
+.contact-btn {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 14px 26px;
+  border-radius: 12px;
+
+  background: linear-gradient(
+    90deg,
+    var(--accent-1),
+    var(--accent-2)
+  );
+
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* ================= FOOTER ================= */
+
+.footer {
+  padding: 56px;
+  text-align: center;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 120px 28px 100px;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .block {
+    padding: 56px 32px;
+  }
+
+  .nav a {
+    margin-left: 18px;
+  }
+}
